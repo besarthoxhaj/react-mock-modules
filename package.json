@@ -4,7 +4,7 @@
   "description": "A collection of react native modules mocked for testing purposes",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tape test/runner.js"
   },
   "repository": {
     "type": "git",
