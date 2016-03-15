@@ -93,3 +93,26 @@ test('getAll -> when asked contacts for the first time ask permission `denied`',
     t.equal(contacts.type,'permissionDenied','got permissionDenied');
   });
 });
+
+test('should be able to promisify module', t => {
+
+  t.plan(2);
+
+  const Promise = require('bluebird');
+  const contacts_ok = contacts_function({permission:'authorized'});
+  const contacts_error = contacts_function({permission:'error'});
+  const promise_contacts_ok = Promise.promisifyAll(contacts_ok);
+  const promise_contacts_error = Promise.promisifyAll(contacts_error);
+
+  promise_contacts_ok.checkPermissionAsync()
+  .then(data => {
+    t.equal(data,'authorized','got authorized');
+    return promise_contacts_error.getAllAsync();
+  })
+  .then(data => {
+    // will never reach this point
+  })
+  .catch(error => {
+    t.equal(error.cause.toString(),'Error: error','got error');
+  });
+});

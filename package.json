@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/besarthoxhaj/react-mock-modules#readme",
   "devDependencies": {
+    "bluebird": "^3.3.4",
     "tape": "^4.5.1"
   }
 }
