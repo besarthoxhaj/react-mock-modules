@@ -116,3 +116,22 @@ test('should be able to promisify module', t => {
     t.equal(error.cause.toString(),'Error: error','got error');
   });
 });
+
+test('should be able to promisify module `getAllAsync`', t => {
+
+  t.plan(1);
+
+  const Promise = require('bluebird');
+  const contacts_ok = contacts_function({permission:'authorized'});
+  const contacts_error = contacts_function({permission:'error'});
+  const promise_contacts_ok = Promise.promisifyAll(contacts_ok);
+  const promise_contacts_error = Promise.promisifyAll(contacts_error);
+
+  promise_contacts_ok.getAllAsync()
+  .then(data => {
+    t.equal(data.length,2,'got two contacts');
+  })
+  .catch(error => {
+    t.end();
+  });
+});
