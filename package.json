@@ -1,6 +1,6 @@
 {
   "name": "react-mock-modules",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A collection of react native modules mocked for testing purposes",
   "main": "index.js",
   "scripts": {
