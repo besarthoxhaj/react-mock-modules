@@ -14,13 +14,14 @@
 
 'use strict';
 
+const create_hub = require('./utils/hub.js');
 const mock_contacts = require('./utils/mock_contacts.json');
 
 module.exports = function (inject) {
 
   inject = inject || {};
   let permission = inject.permission || undefined;
-  let hub = inject.hub || {};
+  let hub = inject.hub || create_hub();
   let store = inject.currentContacts || mock_contacts;
 
   return {
