@@ -71,7 +71,7 @@ module.exports = function (inject) {
           hub.addEventListener('getAll:user_input', data => {
             switch (data) {
               case 'denied':
-                callback(null,{type:'permissionDenied'});
+                callback({type:'permissionDenied'},null);
                 break;
               case 'authorized':
                 callback(null,store);

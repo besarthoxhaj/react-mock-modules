@@ -89,8 +89,8 @@ test('getAll -> when asked contacts for the first time ask permission `denied`',
   });
 
   contacts.getAll((err,contacts) => {
-    t.notOk(err,'no errors');
-    t.equal(contacts.type,'permissionDenied','got permissionDenied');
+    t.notOk(contacts,'no contacts');
+    t.equal(err.type,'permissionDenied','got permissionDenied');
   });
 });
 
@@ -133,5 +133,28 @@ test('should be able to promisify module `getAllAsync`', t => {
   })
   .catch(error => {
     t.end();
+  });
+});
+
+test('promise `getAllAsync` with no permission should reject with error', t => {
+
+  t.plan(2);
+
+  const Promise = require('bluebird');
+  const hub = create_hub();
+  const contacts_denied = contacts_function({permission:undefined,hub:hub});
+  const promise_contacts_denied = Promise.promisifyAll(contacts_denied);
+
+  hub.addEventListener('getAll:require_permission', () => {
+    t.pass('asking user permission');
+    hub.emit('getAll:user_input','denied');
+  });
+
+  promise_contacts_denied.getAllAsync()
+  .then(data => {
+    // nothing here
+  })
+  .catch(error => {
+    t.equal(error.type,'permissionDenied','got permission denied');
   });
 });
