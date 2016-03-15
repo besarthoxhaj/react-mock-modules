@@ -1,0 +1,32 @@
+[
+    {
+      "recordID": 1,
+      "familyName": "First Foo",
+      "givenName": "Last Foo",
+      "middleName": "",
+      "emailAddresses": [{
+        "label": "work",
+        "email": "foo@example.com"
+      }],
+      "phoneNumbers": [{
+        "label": "mobile",
+        "number": "555-5555"
+      }],
+      "thumbnailPath": ""
+    },
+    {
+      "recordID": 2,
+      "familyName": "First Bar",
+      "givenName": "Last Bar",
+      "middleName": "",
+      "emailAddresses": [{
+        "label": "work",
+        "email": "last@example.com"
+      }],
+      "phoneNumbers": [{
+        "label": "mobile",
+        "number": "666-6666"
+      }],
+      "thumbnailPath": ""
+    }
+  ]

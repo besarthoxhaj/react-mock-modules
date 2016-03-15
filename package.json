@@ -1,0 +1,34 @@
+{
+  "name": "react-mock-modules",
+  "version": "1.0.0",
+  "description": "A collection of react native modules mocked for testing purposes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/besarthoxhaj/react-mock-modules.git"
+  },
+  "keywords": [
+    "mock",
+    "react-native",
+    "react",
+    "test",
+    "modules",
+    "native",
+    "unit-test",
+    "contacts",
+    "alertIOS",
+    "notificationIOS"
+  ],
+  "author": "Besart Hoxhaj",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/besarthoxhaj/react-mock-modules/issues"
+  },
+  "homepage": "https://github.com/besarthoxhaj/react-mock-modules#readme",
+  "devDependencies": {
+    "tape": "^4.5.1"
+  }
+}
