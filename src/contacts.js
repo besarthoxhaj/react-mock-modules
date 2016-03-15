@@ -88,7 +88,7 @@ module.exports = function (inject) {
             case 'denied':
               callback(null,{type:'permissionDenied'});
               break;
-            case 'success':
+            case 'authorized':
               callback(null,store);
               break;
             case 'error':

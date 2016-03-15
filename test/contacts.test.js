@@ -38,7 +38,7 @@ test('getAll -> should get all contacts', t => {
 
   t.plan(2);
 
-  const contacts = contacts_function({permission:'success'});
+  const contacts = contacts_function({permission:'authorized'});
 
   contacts.getAll((err,contacts) => {
     t.notOk(err,'no errors');
