@@ -1,7 +1,7 @@
 'use strict';
 
 const test = require('tape');
-const contacts_function = require('../src/contacts.js');
+const contacts_function = require('../index.js').Contacts;
 const create_hub = require('../src/utils/hub.js');
 
 test('checkPermission -> should return a callback with permission', t => {
